@@ -1,11 +1,13 @@
 ﻿
 using Business.Models;
+using System.Diagnostics;
 
 namespace Business.Services;
 
 public class MenuService
 {
     UserService userService = new UserService();
+    FileService fileService = new FileService();
     public void MainMenu()
     {
         Console.Clear();
@@ -32,10 +34,12 @@ public class MenuService
                 }
             case "3":
                 {
+                    SaveContactsToJson();
                     break;
                 }
             case "4":
                 {
+                    RetriveContacts();
                     break;
                 }
             case "5":
@@ -78,6 +82,7 @@ public class MenuService
     {
         Console.Clear();
         Console.WriteLine("--------------VIEW ALL USERS-------------");
+        Console.WriteLine("");
 
         foreach (var user in userService.ViewAllUsers())
         {
@@ -96,7 +101,40 @@ public class MenuService
 
     public void SaveContactsToJson()
     {
+        User user = new User();
 
+        Console.Clear();
+        Console.WriteLine("--------------SAVE CONTACTS--------------");
+        Console.WriteLine("");
+        try
+        {
+            userService.AddUsersToJson(user);
+            Console.WriteLine("Succesfully saved contacts to file.");
+            Console.ReadLine();
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine(ex.Message);
+            Console.ReadLine();
+        }
+    }
+
+    public void RetriveContacts()
+    {
+        Console.Clear();
+        Console.WriteLine("------------RETRIEVE CONTACTS------------");
+        Console.WriteLine("");
+        try
+        {
+            userService.RetrieveUsersFromJson();
+            Console.WriteLine("Succesfully retrieved contacts from file.");
+            Console.ReadLine();
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine(ex.Message);
+            Console.ReadLine();
+        }
     }
 
     public void QuitApplication()
