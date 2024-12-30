@@ -6,8 +6,15 @@ namespace Business.Services;
 
 public class MenuService
 {
-    UserService userService = new UserService();
-    FileService fileService = new FileService();
+    private readonly FileService _fileService;
+    private readonly UserService _userService;
+
+    public MenuService()
+    {
+        _fileService = new FileService("Data", "list.json");
+        _userService = new UserService(_fileService);
+    }
+
     public void MainMenu()
     {
         Console.Clear();
@@ -73,7 +80,7 @@ public class MenuService
         Console.Write("City: ");
         user.City = Console.ReadLine()!;
 
-        userService.AddUser(user);
+        _userService.AddUser(user);
         Console.WriteLine("Contact added successfully.");
         Console.ReadLine();
     }
@@ -84,7 +91,7 @@ public class MenuService
         Console.WriteLine("--------------VIEW ALL USERS-------------");
         Console.WriteLine("");
 
-        foreach (var user in userService.ViewAllUsers())
+        foreach (var user in _userService.ViewAllUsers())
         {
             Console.WriteLine("");
             Console.WriteLine($"{"Id: ",-10} {user.Id}");
@@ -108,7 +115,7 @@ public class MenuService
         Console.WriteLine("");
         try
         {
-            userService.AddUsersToJson(user);
+            _userService.AddUsersToJson(user);
             Console.WriteLine("Succesfully saved contacts to file.");
             Console.ReadLine();
         }
@@ -126,7 +133,7 @@ public class MenuService
         Console.WriteLine("");
         try
         {
-            userService.RetrieveUsersFromJson();
+            _userService.RetrieveUsersFromJson();
             Console.WriteLine("Succesfully retrieved contacts from file.");
             Console.ReadLine();
         }

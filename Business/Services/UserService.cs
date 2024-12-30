@@ -6,11 +6,25 @@ namespace Business.Services;
 public class UserService
 {
     private List<User> _users = [];
+    private FileService fileService;
     private readonly FileService _fileService = new FileService(fileName: "users.json");
 
-    public void AddUser(User user)
+    public UserService(FileService fileService)
     {
-        _users.Add(user);
+        this.fileService = fileService;
+    }
+
+    public bool AddUser(User user)
+    {
+        try
+        {
+            _users.Add(user);
+            return true;
+        }
+        catch
+        {
+            return false;
+        }
     }
 
     public IEnumerable<User> ViewAllUsers()
@@ -18,9 +32,17 @@ public class UserService
         return _users;
     }
 
-    public void AddUsersToJson(User user)
+    public bool AddUsersToJson(User user)
     {
-        _fileService.SaveListToFile(_users);
+        try
+        {
+            _fileService.SaveListToFile(_users);
+            return true;
+        }
+        catch
+        {
+            return false;
+        }
     }
 
     public IEnumerable<User> RetrieveUsersFromJson()

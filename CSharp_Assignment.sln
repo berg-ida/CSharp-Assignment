@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35506.116 d17.12
+VisualStudioVersion = 17.12.35506.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactConsole.MainApp", "ContactConsole.MainApp\ContactConsole.MainApp.csproj", "{ACE20DC9-8326-4FBE-902A-3AB8E1A6FDED}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{140CB36E-018C-471F-AEB1-EB74533C40BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactConsole.MainApp.Tests", "ContactConsole.MainApp.Tests\ContactConsole.MainApp.Tests.csproj", "{F7858A87-F0EE-48E8-903A-35DA625F5344}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{140CB36E-018C-471F-AEB1-EB74533C40BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{140CB36E-018C-471F-AEB1-EB74533C40BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{140CB36E-018C-471F-AEB1-EB74533C40BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7858A87-F0EE-48E8-903A-35DA625F5344}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7858A87-F0EE-48E8-903A-35DA625F5344}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7858A87-F0EE-48E8-903A-35DA625F5344}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7858A87-F0EE-48E8-903A-35DA625F5344}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

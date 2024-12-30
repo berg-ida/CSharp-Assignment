@@ -16,8 +16,6 @@ public class FileService
         _filePath = Path.Combine(_directoryPath, fileName);
     }
 
-
-
     public void SaveListToFile(List<User> list)
     {
         try
